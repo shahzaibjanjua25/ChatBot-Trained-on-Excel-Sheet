@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Query App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .chat-box {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .user-avatar img,
+        .chat-bot img {
+            max-width: 40px;
+            height: auto;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .user-avatar {
+            text-align: right;
+        }
+
+        .chat-bot {
+            text-align: left;
+        }
+
+        .icon {
+            font-size: 20px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .user-query {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .chatbot-response {
+            background-color: #d9edf7;
+            border: 1px solid #bcdff1;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>Movie Query App Header</p>
+        </div>
+        <div class="chat-box">
+            {% for item in chat_history %}
+                {% if item.type == 'user' %}
+                    <div class="user-query">
+                        <span class="icon">👤</span>{{ item.text }}
+                    </div>
+                {% elif item.type == 'chatbot' %}
+                    <div class="chatbot-response">
+                        <span class="icon">🤖</span>{{ item.text | safe }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <div class="user">
+                <span class="icon">👤</span>User's message goes here
+            </div>
+            <div class="chat-bot">
+                <span class="icon">🤖</span>{{ response | safe }}
+                <span class="typing-animation"></span>
+            </div>
+        </div>
+        <form method="POST" action="/query">
+            <input type="text" name="user_query" placeholder="Ask me about a movie..." required>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        var chatBox = document.querySelector('.chat-box');
+        chatBox.scrollTop = chatBox.scrollHeight;
+    </script>
+</body>
+</html>
