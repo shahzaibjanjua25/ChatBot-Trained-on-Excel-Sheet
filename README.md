@@ -1,5 +1,5 @@
 
-#Flask Movie Database
+# Flask Movie Database
 
 A simple web application built with Flask that allows users to query a movie database and retrieve information about movies.
 
@@ -109,4 +109,3 @@ Contributions are welcome! If you have any improvements or suggestions, please o
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
