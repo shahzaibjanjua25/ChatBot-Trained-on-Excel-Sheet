@@ -1,10 +1,9 @@
 
-```markdown
-# Flask Movie Database
+#Flask Movie Database
 
 A simple web application built with Flask that allows users to query a movie database and retrieve information about movies.
 
-## Table of Contents
+##Table of Contents
 - [Features](#features)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
@@ -12,7 +11,7 @@ A simple web application built with Flask that allows users to query a movie dat
 - [Contributing](#contributing)
 - [License](#license)
 
-## Features
+##Features
 
 - Look up information about movies, such as title, rating, genre, year, and more.
 - Find the top-rated movie in the database.
@@ -22,7 +21,7 @@ A simple web application built with Flask that allows users to query a movie dat
 - Filter movies by genre, rating, release year, and other criteria.
 - Clear conversation history.
 
-## Prerequisites
+##Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 
@@ -45,7 +44,7 @@ Before you begin, ensure you have met the following requirements:
   pip install fuzzywuzzy
   ```
 
-## Installation
+##Installation
 
 1. Clone the repository:
 
@@ -85,7 +84,7 @@ Before you begin, ensure you have met the following requirements:
    pip install -r requirements.txt
    ```
 
-## Usage
+##Usage
 
 1. Start the Flask application:
 
@@ -103,7 +102,7 @@ Before you begin, ensure you have met the following requirements:
 
 6. You can clear the chat history by clicking the "Clear Chat" button.
 
-## Contributing
+##Contributing
 
 Contributions are welcome! If you have any improvements or suggestions, please open an issue or create a pull request.
 
