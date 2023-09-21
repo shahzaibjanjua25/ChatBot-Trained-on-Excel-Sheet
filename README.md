@@ -84,7 +84,7 @@ Before you begin, ensure you have met the following requirements:
    pip install -r requirements.txt
    ```
 
-##Usage
+## Usage
 
 1. Start the Flask application:
 
@@ -102,7 +102,7 @@ Before you begin, ensure you have met the following requirements:
 
 6. You can clear the chat history by clicking the "Clear Chat" button.
 
-##Contributing
+## Contributing
 
 Contributions are welcome! If you have any improvements or suggestions, please open an issue or create a pull request.
 
