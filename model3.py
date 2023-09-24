@@ -2,9 +2,9 @@ from flask import Flask, request, render_template
 import pandas as pd
 from fuzzywuzzy import fuzz
 import random
-
+import os 
 app = Flask(__name__)
-
+app.config['UPLOAD_FOLDER'] = 'static'
 df = pd.read_csv('movies.csv')
 conversation_history = []
 
@@ -76,6 +76,9 @@ def search_movie_info(query):
 @app.route('/')
 def index():
     return render_template('index.html', response="")
+def show_index():
+    full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'logo.png')
+    return render_template("index.html", user_image=full_filename)
 
 @app.route('/query', methods=['POST'])
 def query():

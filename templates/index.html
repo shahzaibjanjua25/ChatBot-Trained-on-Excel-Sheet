@@ -18,8 +18,8 @@
         
         .scroll-to-bottom-button {
             position: fixed;
-            bottom: 20px; /* Adjust the distance from the bottom */
-            right: 20px; /* Adjust the distance from the right */
+            bottom: 20px; 
+            right: 20px; 
             padding: 10px 20px;
             background-color: #050505;
             color: #fff;
@@ -48,6 +48,9 @@
             color: #fff;
             text-align: center;
             padding: 20px;
+            align-items: center;
+            justify-content: center; 
+           
         }
 
         .header img {
@@ -85,17 +88,18 @@
             font-size: 20px;
             vertical-align: middle;
             margin-right: 5px;
+            /* width:100%; */
         }
 
         input[type="text"] {
-            width: 80%;
+            width: 86%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
         }
 
-        input[type="submit"] {
+        button[type="submit"]{
             background-color: #007BFF;
             color: #fff;
             border: none;
@@ -104,20 +108,20 @@
             cursor: pointer;
             font-size: 16px;
         }
-        .clear-chat-history-button{
+        button[class="clear-chat-history-button"]{
             margin-top:7px;
             background-color: #1f721c;
             color: #fff;
             border: none;
-            /* padding: 10px 20px; */
             border-radius: 5px;
             cursor: pointer;
             font-size: 13px;
-            width:120px;
+            width:100px;
             height: 30px;
+            padding:  7px; ;
 
         }
-        input[type="submit"]:hover {
+        button[type="submit"]:hover {
             background-color: #0056b3;
         }
 
@@ -147,6 +151,25 @@
         float: left;
         color: #fff;
     }
+    .header {
+    background-color: #007BFF;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.logo img {
+    max-width: 100px; 
+    height: auto;
+}
+
     </style>
 </head>
 <body>
@@ -154,8 +177,13 @@
   
     <div class="container">
         <div class="header">
-          <h1>ReelSeeker ChatBot</h1>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.jpg') }}" alt="ReelSeeker Logo">
+            </div>
+            <h1>ReelSeeker ChatBot</h1>
         </div>
+        
+        
         
         
         <button class="scroll-to-bottom-button" onclick="scrollToBottom()">
@@ -188,10 +216,14 @@
 
         <form method="POST" action="/query">
             <input type="text" name="user_query" placeholder="Ask me about a movie..." required>
-            <input type="submit" value="Submit">
+            <button type="submit" id="submit">
+                <i class="fas fa-paper-plane"></i> 
+            </button>
         </form>
         
-        <button class="clear-chat-history-button" onclick="clearChatHistory()">Clear Chat History</button>
+        <button class="clear-chat-history-button" onclick="clearChatHistory()">
+            <i class="fas fa-trash"></i> &nbsp; Clear Chat 
+        </button>
         
     
     </div>
