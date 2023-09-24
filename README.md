@@ -1,5 +1,5 @@
 
-# Flask Movie Database
+# Flask Movie DB ChatBot
 
 A simple web application built with Flask that allows users to query a movie database and retrieve information about movies.
 
